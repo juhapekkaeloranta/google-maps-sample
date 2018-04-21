@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    #map {
+      height: 600px;
+      width: 80%;
+    }
+  </style>
+  <script type='text/javascript' src="apikey.js"></script>
+</head>
+
+<body>
+  <h3>Google Maps Demo</h3>
+  <div id="map"></div>
+  <script type='text/javascript' src="map.js"></script>
+  <script>
+    if (APIKEY) {
+      console.log('apikey found!')
+
+      function addScriptElementToDocument(url) {
+        var script = document.createElement("script");
+        script.src = url
+        document.body.appendChild(script);
+      }
+      
+      addScriptElementToDocument("https://maps.googleapis.com/maps/api/js?key=" + APIKEY + "&callback=initMap")
+    } else {
+      console.log('apikey not found')
+    }
+  </script>
+</body>
+
+</html>
